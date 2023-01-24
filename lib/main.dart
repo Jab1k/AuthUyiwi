@@ -3,6 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_18/pages/Add_number.dart';
 import 'package:flutter_application_18/pages/homepage.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:provider/provider.dart';
+
+import 'controller/controller.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -15,12 +18,17 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => Controller()),
+      ],
+      child: MaterialApp(
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        home: const HomePage(),
       ),
-      home: const HomePage(),
     );
   }
 }
