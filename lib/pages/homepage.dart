@@ -5,9 +5,12 @@ import 'package:flutter_application_18/controller/controller.dart';
 import 'package:flutter_application_18/model/model.dart';
 import 'package:flutter_application_18/pages/Add_number.dart';
 import 'package:flutter_application_18/pages/facebook.dart';
-import 'package:flutter_application_18/pages/google_page.dart';
+import 'package:flutter_application_18/pages/firebase.dart';
+import 'package:flutter_application_18/pages/googlesign.dart';
 import 'package:flutter_login_facebook/flutter_login_facebook.dart';
 import 'package:provider/provider.dart';
+
+import 'addpage.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -44,7 +47,7 @@ class _HomePageState extends State<HomePage> {
                   onTap: () {
                     Navigator.of(context).push(
                       MaterialPageRoute(
-                        builder: (context) => SignUp(),
+                        builder: (context) => GoogleSign(),
                       ),
                     );
                   },
@@ -65,12 +68,9 @@ class _HomePageState extends State<HomePage> {
 
                       switch (res.status) {
                         case FacebookLoginStatus.success:
-                          // Logged in
 
-                          // Send access token to server for validation and auth
                           final FacebookAccessToken? accessToken =
                               res.accessToken;
-                          // Get profile data
                           final profile = await fb.getUserProfile();
                           final imageUrl =
                               await fb.getProfileImageUrl(width: 100);
@@ -80,9 +80,9 @@ class _HomePageState extends State<HomePage> {
                               image: imageUrl,
                               email: email,
                               lastname: profile?.lastName));
-                               Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => FacebookPage(),
-                      ));
+                          Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => FacebookPage(),
+                          ));
                           break;
                         case FacebookLoginStatus.cancel:
                           break;
@@ -90,19 +90,20 @@ class _HomePageState extends State<HomePage> {
                           print('Error while log in: ${res.error}');
                           break;
                       }
-                     //kjdfdkjfgdkfhgdjkfhgkjdfhgkjdf
-                     //sdfsdfsdfsdfsd
-
-
-
-
-
-                     
                     },
                     child: Icon(Icons.add))
               ],
             ),
-          )
+          ),
+          InkWell(
+              onTap: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => GetProductPage(),
+                  ),
+                );
+              },
+              child: Icon(Icons.fire_extinguisher)),
         ],
       ),
     );

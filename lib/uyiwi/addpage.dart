@@ -4,14 +4,14 @@ import 'package:flutter_application_18/uyiwi/modeldata.dart';
 
 import 'homepage.dart';
 
-class AddProductPage extends StatefulWidget {
-  const AddProductPage({Key? key}) : super(key: key);
+class AddgamePage extends StatefulWidget {
+  const AddgamePage({Key? key}) : super(key: key);
 
   @override
-  State<AddProductPage> createState() => _AddProductPageState();
+  State<AddgamePage> createState() => _AddgamePageState();
 }
 
-class _AddProductPageState extends State<AddProductPage> {
+class _AddgamePageState extends State<AddgamePage> {
   final TextEditingController nameController = TextEditingController();
   final TextEditingController descController = TextEditingController();
   final TextEditingController priceController = TextEditingController();
@@ -52,13 +52,12 @@ class _AddProductPageState extends State<AddProductPage> {
             ElevatedButton(
                 onPressed: () {
                   firestore
-                      .collection("product")
+                      .collection("Games")
                       .add(GameModel(
                               name: nameController.text,
                               desc: descController.text,
                               price: double.tryParse(priceController.text) ?? 0,
-                              uynalgan:
-                                  double.tryParse(uynalganController.text) ?? 0)
+                              uynalgan: uynalganController.text)
                           .toJson())
                       .then((value) {
                     Navigator.pushAndRemoveUntil(
