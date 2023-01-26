@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_18/pages/Add_number.dart';
+import 'package:flutter_application_18/pages/dynamiclink.dart';
 import 'package:flutter_application_18/pages/firebase.dart';
 import 'package:flutter_application_18/pages/homepage.dart';
 import 'package:flutter_application_18/uyiwi/homepage.dart';
@@ -29,7 +30,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: const GetProductPage(),
+        home: const DynamicLinkPage(),
       ),
     );
   }

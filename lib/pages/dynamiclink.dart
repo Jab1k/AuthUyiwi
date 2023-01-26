@@ -22,12 +22,12 @@ class _DynamicLinkPageState extends State<DynamicLinkPage> {
         onPressed: () async {
           final dynamicLinkParams = DynamicLinkParameters(
               link: Uri.parse("https://www.google.com/"),
-              uriPrefix: "https://lessonnt.page.link",
+              uriPrefix: "https://flutterapplication18.page.link",
               androidParameters: AndroidParameters(
-                  packageName: "com.example.auth_login",
+                  packageName: "com.example.flutter_application_18",
                   fallbackUrl: Uri.parse("https://www.figma.com/")),
               iosParameters: IOSParameters(
-                  bundleId: "com.example.authLogin",
+                  bundleId: "com.example.flutter_application_18",
                   fallbackUrl: Uri.parse("https://www.figma.com/")),
               socialMetaTagParameters: SocialMetaTagParameters(
                 title: "Title",
