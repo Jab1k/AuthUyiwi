@@ -57,7 +57,7 @@ class _AddgamePageState extends State<AddgamePage> {
                               name: nameController.text,
                               desc: descController.text,
                               price: double.tryParse(priceController.text) ?? 0,
-                              uynalgan: uynalganController.text)
+                              uynalgan: uynalganController.text, image: '')
                           .toJson())
                       .then((value) {
                     Navigator.pushAndRemoveUntil(
